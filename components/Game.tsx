@@ -89,7 +89,7 @@ const Game: React.FC = () => {
   useEffect(() => {}, [currentMove, currentBoard]);
 
   return (
-    <div className="bg-black border-2 border-white/[0.2] w-auto h-auto rounded-xl p-6 flex flex-col gap-2 font-mono justify-center shadow-sm shadow-white">
+    <div className="bg-black border-2 border-white/[0.2] w-auto h-auto rounded-xl p-6 flex flex-col gap-2 font-mono justify-center shadow-sm shadow-white m-2">
       <div className="flex justify-between text-md lg:text-xl">
         {winner ? (
           <>
