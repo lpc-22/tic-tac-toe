@@ -89,8 +89,8 @@ const Game: React.FC = () => {
   useEffect(() => {}, [currentMove, currentBoard]);
 
   return (
-    <div className="bg-black border border-white/[0.2] w-auto h-auto rounded-xl p-6 flex flex-col gap-2 font-mono justify-center shadow-sm shadow-white">
-      <div className="flex justify-between">
+    <div className="bg-black border-2 border-white/[0.2] w-auto h-auto rounded-xl p-6 flex flex-col gap-2 font-mono justify-center shadow-sm shadow-white">
+      <div className="flex justify-between text-md lg:text-xl">
         {winner ? (
           <>
             <p>The winner is: {winner}</p>
@@ -139,7 +139,7 @@ const GameInfo = ({
     if (index > 0) {
       description = "Go to move #" + index;
     } else {
-      description = "Go to game start";
+      description = "Game start";
     }
 
     return (

@@ -13,11 +13,11 @@ const Square: React.FC<squareProps> = ({
 }) => {
   return (
     <div
-      className="border border-white/[0.2] w-20 h-20 rounded-md flex justify-center items-center bg-black text-white font-extrabold"
+      className="border border-white/[0.2] w-20 h-20 md:w-30 md:h-30 lg:h-40 lg:w-40 rounded-md flex justify-center items-center bg-black text-white font-extrabold"
       onClick={onSquareClick}
     >
       <div
-        className={`w-full h-full flex justify-center items-center content-center opacity-0 ${
+        className={`w-full h-full flex justify-center items-center content-center opacity-0 text-4xl ${
           currentSquareStatus
             ? "opacity-100 text-white"
             : "hover:opacity-100 text-gray-500"
