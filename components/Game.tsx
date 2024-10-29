@@ -1,5 +1,6 @@
 "use client";
 
+import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
 import Board from "./Board";
 
@@ -15,7 +16,9 @@ const Game: React.FC = () => {
     const nextHistory = [...histroy.slice(0, currentMove + 1), nextBoardStatus];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
-    calculateWinner(nextBoardStatus);
+    if (calculateWinner(nextBoardStatus) != null) {
+      firework();
+    }
   }
 
   function handleJump(selectedMove: number) {
@@ -46,23 +49,73 @@ const Game: React.FC = () => {
     return null;
   }
 
+  function firework() {
+    const end = Date.now() + 3 * 1000; // 3 seconds
+    const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
+
+    const frame = () => {
+      if (Date.now() > end) return;
+
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        startVelocity: 60,
+        origin: { x: 0, y: 0.5 },
+        colors: colors,
+      });
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        startVelocity: 60,
+        origin: { x: 1, y: 0.5 },
+        colors: colors,
+      });
+
+      requestAnimationFrame(frame);
+    };
+
+    frame();
+  }
+
+  function resetGame() {
+    setHistory([Array<SquareStatus>(9).fill(null)]);
+    setCurrentMove(0);
+  }
+
   const winner = calculateWinner(currentBoard);
 
   useEffect(() => {}, [currentMove, currentBoard]);
 
   return (
-    <div className="bg-black border border-white/[0.2] w-auto h-auto rounded-xl p-6 flex flex-col gap-2 font-mono">
+    <div className="bg-black border border-white/[0.2] w-auto h-auto rounded-xl p-6 flex flex-col gap-2 font-mono justify-center shadow-sm shadow-white">
       <div className="flex justify-between">
         {winner ? (
           <>
             <p>The winner is: {winner}</p>
-            <button className="underline underline-offset-4">reset</button>
+            <button
+              className="underline underline-offset-4"
+              onClick={resetGame}
+            >
+              reset
+            </button>
+          </>
+        ) : currentMove == 9 ? (
+          <>
+            <p>Tie</p>
+            <button
+              className="underline underline-offset-4"
+              onClick={resetGame}
+            >
+              reset
+            </button>
           </>
         ) : (
           <p className="">The next player is: {xIsNextPlayer ? "x" : "o"}</p>
         )}
       </div>
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-col gap-4 sm:flex-row">
         <Board
           currentBoardStatus={currentBoard}
           onPlay={winner ? () => {} : handlePlay}
@@ -98,8 +151,8 @@ const GameInfo = ({
     );
   });
   return (
-    <div className="w-60">
-      <ol className="list-inside">{moves}</ol>
+    <div className="w-60 min-h-60">
+      <ol className="list-inside list-disc">{moves}</ol>
     </div>
   );
 };
