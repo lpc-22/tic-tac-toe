@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tic-Tac-Toe Game
 
-## Getting Started
+> This is a simple coding practice.
 
-First, run the development server:
+A simple Tic-Tac-Toe game inspired by a [tutorial](https://react.dev/learn/tutorial-tic-tac-toe). It is built with [Next.js](https://nextjs.org/) and [React](https://reactjs.org/). This project showcases a basic implementation of the classic game, allowing two players to take turns and compete for victory on a 3x3 grid.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Basic Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Interactive Game Board**: Players can click on cells to make moves (X or O).
+- **Player vs. Player**: Two players take turns to play.
+- **Winner Detection**: The game checks for a winner or a draw after every move.
+- **Reset Game**: Reset the game after it finishes to play again.
+-
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[Try it now](https://isaaclee-tictactoe.netlify.app/)
 
-## Learn More
+![alt text](/public/demo-preview-1.png)
 
-To learn more about Next.js, take a look at the following resources:
+![alt text](/public/demo-preview-2.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Next.js**: For the React-based framework and server-side rendering.
+- **React**: For building the UI components.
+- **TailwindCSS**: For basic styling.
 
-## Deploy on Vercel
+## Setup and Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   git clone https://github.com/your-username/tic-tac-toe-nextjs.git
+   ```
